@@ -1,0 +1,11 @@
+{
+  "Group": "Misc",
+  "FriendlyName": "Product FAQ",
+  "SystemName": "Misc.ProductFaq",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "Eda Ciftci",
+  "DisplayOrder": 2,
+  "FileName": "Nop.Plugin.Misc.ProductFaq.dll",
+  "Description": "Adds product-specific frequently asked questions to product edit and product detail pages."
+}

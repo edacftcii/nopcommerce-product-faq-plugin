@@ -1,0 +1,18 @@
+@model PublicProductFaqModel
+
+<div class="product-faqs">
+    <div class="title">
+        <strong>@T("Plugins.Misc.ProductFaq.Public.Title")</strong>
+    </div>
+    <div class="product-faqs-list">
+        @foreach (var item in Model.Items)
+        {
+            <details class="product-faq-item">
+                <summary>@item.Question</summary>
+                <div class="product-faq-answer">
+                    @Html.Raw(Html.Encode(item.Answer).Replace("\n", "<br />"))
+                </div>
+            </details>
+        }
+    </div>
+</div>

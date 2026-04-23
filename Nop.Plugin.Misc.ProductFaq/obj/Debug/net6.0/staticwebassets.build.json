@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "aN59Fa9T2gDQ4WJiPVMV6Q8/L/4Fs39TCaB40NjdeoE=",
+  "Source": "Nop.Plugin.Misc.ProductFaq",
+  "BasePath": "_content/Nop.Plugin.Misc.ProductFaq",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
