@@ -1,18 +1,129 @@
 @model PublicProductFaqModel
 
-<div class="product-faqs">
-    <div class="title">
-        <strong>@T("Plugins.Misc.ProductFaq.Public.Title")</strong>
-    </div>
+<style>
+    .product-faqs {
+        margin: 32px 0 0;
+    }
+
+    .product-faqs-header {
+        margin-bottom: 18px;
+    }
+
+    .product-faqs-title {
+        margin: 0;
+        color: #222;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .product-faqs-list {
+        display: grid;
+        gap: 12px;
+    }
+
+    .product-faq-item {
+        border: 1px solid #e3e7ee;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+        overflow: hidden;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-faq-item[open] {
+        border-color: #4f6f8f;
+        box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+    }
+
+    .product-faq-question {
+        position: relative;
+        display: block;
+        padding: 18px 56px 18px 20px;
+        color: #1f2937;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .product-faq-question::-webkit-details-marker {
+        display: none;
+    }
+
+    .product-faq-question::after {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        width: 24px;
+        height: 24px;
+        margin-top: -12px;
+        color: #4f6f8f;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: center;
+    }
+
+    .product-faq-item[open] .product-faq-question::after {
+        content: "−";
+    }
+
+    .product-faq-answer {
+        padding: 0 20px 20px;
+        color: #5b6574;
+        font-size: 15px;
+        line-height: 1.7;
+        border-top: 1px solid #eef2f7;
+    }
+
+    .product-faq-answer-inner {
+        padding-top: 16px;
+    }
+
+    @@media (max-width: 768px) {
+        .product-faqs {
+            margin-top: 24px;
+        }
+
+        .product-faqs-title {
+            font-size: 24px;
+        }
+
+        .product-faq-question {
+            padding: 16px 48px 16px 16px;
+            font-size: 15px;
+        }
+
+        .product-faq-answer {
+            padding: 0 16px 16px;
+            font-size: 14px;
+        }
+
+        .product-faq-question::after {
+            right: 16px;
+        }
+    }
+</style>
+
+<section class="product-faqs" aria-label="@T("Plugins.Misc.ProductFaq.Public.Title")">
+    <header class="product-faqs-header">
+        <h2 class="product-faqs-title">@T("Plugins.Misc.ProductFaq.Public.Title")</h2>
+    </header>
+
     <div class="product-faqs-list">
         @foreach (var item in Model.Items)
         {
             <details class="product-faq-item">
-                <summary>@item.Question</summary>
+                <summary class="product-faq-question">@item.Question</summary>
                 <div class="product-faq-answer">
-                    @Html.Raw(Html.Encode(item.Answer).Replace("\n", "<br />"))
+                    <div class="product-faq-answer-inner">
+                        @Html.Raw(Html.Encode(item.Answer).Replace("\n", "<br />"))
+                    </div>
                 </div>
             </details>
         }
     </div>
-</div>
+</section>
